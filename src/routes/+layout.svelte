@@ -9,7 +9,7 @@
 <div class="relative">
     <Navbar/>
     <div class="h-6"></div>
-    <main class="md:container mx-auto md:px-2">
+    <main class="md:container mx-auto px-4">
         <slot/>
     </main>
 </div>
