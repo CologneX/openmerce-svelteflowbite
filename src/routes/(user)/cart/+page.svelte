@@ -39,7 +39,7 @@
                                     aria-label="Delete Product">
                                 <Trash/>
                             </button>
-
+                            <div class="divider"></div>
                             <div class="grid grid-cols-[auto_1fr_auto] w-fit">
                                 <button
                                         class="btn btn-sm text-primary-500 p-0">
