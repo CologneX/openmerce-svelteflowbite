@@ -30,7 +30,7 @@
 
 <div>
 
-    <h5>Wishlist</h5>
+    <h4>Wishlist</h4>
     <div class="h-2"></div>
 
         <Input placeholder="Search wishlist" class="w-full">
