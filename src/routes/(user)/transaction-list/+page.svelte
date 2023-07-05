@@ -22,7 +22,7 @@
     let selectedFilter: string | null = null;
 
     const handleResetFilter = async () => {
-        await selectedFilter = null;
+        selectedFilter = null;
     }
 </script>
 
