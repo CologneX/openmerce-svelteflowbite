@@ -1,13 +1,12 @@
 <script lang="ts">
     import StarMini from "$lib/icons/StarMini.svelte";
-    import {Anchor, Badge, Button, Card, CheckboxGroup, Divider, Progress, Skeleton} from "@svelteuidev/core";
     import HeartMini from "$lib/icons/HeartMini.svelte";
     import ShareMini from "$lib/icons/ShareMini.svelte";
     import PlusSmall from "$lib/icons/PlusSmall.svelte";
     import Truck from "$lib/icons/Truck.svelte";
-    import {screenWidthStore} from "$lib/utils/stores";
+    import {Accordion, AccordionItem, AdvancedRating, Badge, Button, Card, Checkbox} from "flowbite-svelte";
 
-    let SelectedFilterRating;
+    let SelectedFilterRating: number | null = null;
     export let data;
 </script>
 
@@ -41,7 +40,7 @@
         <div class="text-xs md:text-sm flex items-center pt-2"><span class="text-neutral-500">100+</span>&nbsp;Sold&nbsp;•&nbsp;<span><StarMini/></span>&nbsp;5.0
         </div>
         <div class="text-2xl md:text-3xl font-bold pt-4"> Rp. 150.000</div>
-        <Divider class="my-8"/>
+        <div class="divider"></div>
         <div class="card p-3 space-y-2">
             <div class="md:flex gap-2 hidden">
                 <Button>Buy Now</Button>
@@ -55,7 +54,7 @@
                 ><span><HeartMini/></span><span>Wishlist</span></button
 
                 >
-                <Divider/>
+                <div class="divider"></div>
                 <button class="btn btn-sm flex-1"><span><ShareMini/></span><span>Share</span></button>
             </div>
         </div>
@@ -82,12 +81,12 @@
             <p>
                 <span class="text-neutral-500">Weight: </span> 12 kg
                 <br>
-                <span class=" text-neutral-500">Dimension: </span> 12 x 12 x 12 cm
+                <span class="text-neutral-500">Dimension: </span> 12 x 12 x 12 cm
                 <br>
-                <span class=" text-neutral-500">Category: </span>
-                <Anchor href="/category/1" class="no-underline text-xs md:text-sm font-semibold">Home</Anchor>
+                <span class="text-neutral-500">Category: </span>
+                <a href="/category/1" class="font-semibold text-primary-500">Home</a>
             </p>
-            <Divider/>
+            <div class="divider"></div>
             <div class="font-semibold text-lg">Delivery</div>
             <!--            <Skeleton class="h-10 rounded-md"/>-->
             <div class="flex flex-row gap-x-2">
@@ -96,75 +95,117 @@
                     <p>Regular Delivery Rp15.000 - Rp250.000</p>
                     <p class="text-neutral-500">Arrive expected 23 Jun - 26 Jun</p>
                     <p>Other Couriers:
-                        <Badge size="sm" radius="sm">
+                        <Badge>
                             SiCepat
                         </Badge>
-                        <Badge size="sm" radius="sm">
+                        <Badge>
                             JNE
                         </Badge>
-                        <Badge size="sm" radius="sm">
+                        <Badge>
                             Ninja
                         </Badge>
                     </p>
-                    <p class="font-semibold text-blue-400 text-xs md:text-sm">See Couriers</p>
+                    <p class="font-semibold text-primary-500">See Couriers</p>
                     <!--                    <Anchor class="no-underline text-xs md:text-sm font-bold">See Couriers</Anchor>-->
                 </div>
             </div>
-            <Divider/>
+            <div class="divider"></div>
         </div>
     </div>
 </div>
+
 <div class="font-bold text-lg py-6">User Reviews</div>
 <div class="flex flex-col md:flex-row gap-6">
     <div class="basis-2/5">
         <div class="sticky top-14">
-            <div class="flex flex-col items-center">
-                <div class="flex items-end">
-            <span class="flex items-center">
-                <StarMini/>
-                <span class="text-4xl md:text-7xl">5.0</span>
-            </span>
-                    <span class="text-neutral-500 text-lg md:text-xl">/5.0</span>
-                </div>
-                <p class="text-neutral-500">10 Ratings&nbsp;•&nbsp;5 Reviews</p>
-                <div class="flex flex-col w-full max-w-xs px-4">
-                    {#each [5, 4, 3, 2, 1] as rating}
-                        <div class="flex items-center gap-x-2">
-                            <StarMini/>
-                            <p class="font-semibold">{rating}</p>
-                            <Progress
-                                    value={55}
-                                    class="w-full"
-                                    size='sm'
-                            />
-                        </div>
-                    {/each}
-                </div>
-            </div>
+            <!--            <div class="flex flex-col items-center">-->
+            <!--                <div class="flex items-end">-->
+            <!--            <span class="flex items-center">-->
+            <!--                <StarMini/>-->
+            <!--                <span class="text-4xl md:text-7xl">5.0</span>-->
+            <!--            </span>-->
+            <!--                    <span class="text-neutral-500 text-lg md:text-xl">/5.0</span>-->
+            <!--                </div>-->
+            <!--                <p class="text-neutral-500">10 Ratings&nbsp;•&nbsp;5 Reviews</p>-->
+            <!--                <div class="flex flex-col w-full max-w-xs px-4">-->
+            <!--                    {#each [5, 4, 3, 2, 1] as rating}-->
+            <!--                        <div class="flex items-center gap-x-2">-->
+            <!--                            <StarMini/>-->
+            <!--                            <p class="font-semibold">{rating}</p>-->
+            <!--                            <Progressbar progress="55" class="h-1.5"/>-->
+            <!--                        </div>-->
+            <!--                    {/each}-->
+            <!--                </div>-->
+            <!--            </div>-->
+            <Card>
+                <AdvancedRating class="w-full"
+                                ratings={[
+    { label: '5 star', rating: 70 },
+    { label: '4 star', rating: 17 },
+    { label: '3 star', rating: 8 },
+    { label: '2 star', rating: 4 },
+    { label: '1 star', rating: 1 }
+  ]}>
+                    <!--                                <span slot="rating">-->
+                    <!--                                    <Rating total={5} rating={3.72} id="rating/{data.productID}"/>-->
 
+
+                    <!--                                    </span>-->
+
+                    <div class="flex flex-col items-center" slot="globalText">
+                        <div class="flex items-end">
+                                                                        <span class="flex items-center">
+                                                                            <StarMini/>
+                                                                            <span class="text-4xl md:text-7xl">5.0</span>
+                                                                        </span>
+                            <span class="text-neutral-500 text-lg md:text-xl">/5.0</span>
+                        </div>
+                        <p class="text-neutral-500">10 Ratings&nbsp;•&nbsp;5 Reviews</p>
+                    </div>
+                </AdvancedRating>
+            </Card>
+
+            <div class="h-4"></div>
             <Card>
                 <p class="font-bold text-sm md:text-base">Filter Review</p>
-                <Divider class="-mx-4"/>
-                <p class="font-bold text-sm md:text-base">Rating</p>
-                {SelectedFilterRating}
-                <CheckboxGroup
-                        direction="column"
-                        size={$screenWidthStore < 400? 'xs': 'sm'}
-
-                        bind:value={SelectedFilterRating}
-                        items={[{ label: 5, value: 5 },
-                            { label: 4, value: 4 },
-                            { label: 3, value: 3 },
-                            { label: 2, value: 2 },
-                            { label: 1, value: 1 }
-                        ]}
-                />
+                <div class="divider"></div>
+                <!--                <p class="font-bold text-sm md:text-base">Rating</p>-->
+                <Accordion flush>
+                    <AccordionItem open class="h-4">
+                        <h6 slot="header">Rating</h6>
+                        <Checkbox on:click={()=>SelectedFilterRating = 5}
+                                  checked={SelectedFilterRating === 5}
+                        >
+                            5
+                        </Checkbox>
+                        <Checkbox on:click={()=>SelectedFilterRating = 4}
+                                  checked={SelectedFilterRating === 4}
+                        >
+                            4
+                        </Checkbox>
+                        <Checkbox on:click={()=>SelectedFilterRating = 3}
+                                  checked={SelectedFilterRating === 3}
+                        >
+                            3
+                        </Checkbox>
+                        <Checkbox on:click={()=>SelectedFilterRating = 2}
+                                  checked={SelectedFilterRating === 2}
+                        >
+                            2
+                        </Checkbox>
+                        <Checkbox on:click={()=>SelectedFilterRating = 1}
+                                  checked={SelectedFilterRating === 1}
+                        >
+                            1
+                        </Checkbox>
+                    </AccordionItem>
+                </Accordion>
             </Card>
         </div>
     </div>
     <div class="basis-3/5 space-y-2">
         {#each Array(25) as _, i}
-            <div class="p-4 rounded md shadow-md space-y-2">
+            <Card class="space-y-2">
                 <div class="flex items-center">
                     {#each Array(5) as _}
                         <StarMini/>
@@ -175,7 +216,7 @@
                     </p>
                 </div>
                 <div class="flex items-center gap-2">
-                    <Skeleton class="w-10 h-10 rounded-full" animate={false}/>
+                    <!--                    <Skeleton class="w-10 h-10 rounded-full" animate={false}/>-->
                     <p class="font-semibold font-base md:font-lg">Jeffri Kusnaidi</p>
                 </div>
                 <p>
@@ -189,7 +230,14 @@
                     iste laborum modi quis veniam vitae. Autem deleniti facilis illo odio perspiciatis, possimus quis
                     ratione sed vitae.
                 </p>
-            </div>
+            </Card>
         {/each}
     </div>
 </div>
+<Card class="flex flex-row -mx-4 sm:hidden bottom-0 sticky gap-x-2">
+    <Button class="flex-1" outline>Buy Now</Button>
+    <Button class="flex-1">
+        <PlusSmall/>
+        Cart
+    </Button>
+</Card>

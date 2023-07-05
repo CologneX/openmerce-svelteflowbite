@@ -20,6 +20,10 @@
         {name: 'Product 10', status: 'pending'},
     ];
     let selectedFilter: string | null = null;
+
+    const handleResetFilter = async () => {
+        await selectedFilter = null;
+    }
 </script>
 
 <svelte:head>
@@ -38,7 +42,7 @@
         </div>
         <div class="flex flex-row overflow-x-auto no-scrollbar gap-x-2 py-1">
             <p class="text-sm md:text-base font-semibold my-auto">Filter</p>
-            <Button variant="subtle" size={$screenWidthStore < 400? 'xs': 'sm'}>
+            <Button variant="subtle" size={$screenWidthStore < 400? 'xs': 'sm'} on:click={handleResetFilter}>
                 <CancelMini/>
             </Button>
             <Button outline size={$screenWidthStore < 400? 'xs': 'sm'} class="aspect-[10/1]">
