@@ -3,7 +3,7 @@
     import MinusCircle from "$lib/icons/MinusCircle.svelte";
     import Trash from "$lib/icons/Trash.svelte";
     import {screenWidthStore} from "$lib/utils/stores";
-    import {Button, Card, Checkbox, Input} from "flowbite-svelte";
+    import {Button, Card, Checkbox, FloatingLabelInput, Input} from "flowbite-svelte";
 </script>
 
 <svelte:head>
@@ -45,10 +45,11 @@
                                         class="btn btn-sm text-primary-500 p-0">
                                     <span><MinusCircle/></span>
                                 </button>
-                                <Input
-
-                                        class="text-center w-16 border-none focus:border-2 border-primary-500 focus:ring-0"
-                                        size="sm" value="0"
+                                <FloatingLabelInput
+                                        value="0"
+                                        type="text"
+                                        size="sm"
+                                        classInput="w-12 text-center px-0"
                                         on:keypress={(e) => {
 											if (e.key.match(/[^0-9]/g)) {
 												e.preventDefault();

@@ -140,11 +140,11 @@
             <Card>
                 <AdvancedRating class="w-full"
                                 ratings={[
-    { label: '5 star', rating: 70 },
-    { label: '4 star', rating: 17 },
-    { label: '3 star', rating: 8 },
-    { label: '2 star', rating: 4 },
-    { label: '1 star', rating: 1 }
+    { label: '5 Star', rating: 70 },
+    { label: '4 Star', rating: 17 },
+    { label: '3 Star', rating: 8 },
+    { label: '2 Star', rating: 4 },
+    { label: '1 Star', rating: 1 }
   ]}>
                     <!--                                <span slot="rating">-->
                     <!--                                    <Rating total={5} rating={3.72} id="rating/{data.productID}"/>-->
