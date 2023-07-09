@@ -3,7 +3,7 @@
     import MinusCircle from "$lib/icons/MinusCircle.svelte";
     import Trash from "$lib/icons/Trash.svelte";
     import {screenWidthStore} from "$lib/utils/stores";
-    import {Button, Card, Checkbox, FloatingLabelInput, Input} from "flowbite-svelte";
+    import {Button, Card, Checkbox, FloatingLabelInput} from "flowbite-svelte";
 </script>
 
 <svelte:head>
@@ -13,7 +13,7 @@
 <div class="grid grid-cols-3 sm:grid-cols-6 space-x-8">
     <div class="col-span-4 space-y-4">
         <h4 class="text-current">Cart</h4>
-        <div class="bg-white dark:bg-inherit sticky top-12 pt-4 z-10">
+        <div class="bg-white dark:bg-gray-800 sticky top-12 pt-4 z-10">
             <Checkbox>Select all</Checkbox>
             <div class="divider"></div>
         </div>

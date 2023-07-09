@@ -3,7 +3,7 @@
     import Mail from "$lib/icons/Mail.svelte";
     import Lock from "$lib/icons/Lock.svelte";
     import Eye from "$lib/icons/Eye.svelte";
-    import {Button, Card, Checkbox, FloatingLabelInput, Input, Radio} from "flowbite-svelte";
+    import {Button, Card, Checkbox, Datepicker, FloatingLabelInput, Input, Radio} from "flowbite-svelte";
 
     // form bind values
     let isRegisteringIn = false
@@ -42,7 +42,7 @@
     }
 
     // tabs for the form
-    let currentTab: number = 2;
+    let currentTab: number = 3;
 
 </script>
 
@@ -132,9 +132,9 @@
                     <!--                            bind:value={registerData.first_name}-->
                     <!--                            required-->
                     <!--                    />-->
-                    <FloatingLabelInput style="outlined" type="text" label="First Name"
+                    <FloatingLabelInput type="text" label="First Name" style="outlined"
                                         bind:value={registerData.first_name}/>
-                    <FloatingLabelInput style="outlined" type="text" label="Last Name"
+                    <FloatingLabelInput type="text" label="Last Name" style="outlined" class="bg-primary-500"
                                         bind:value={registerData.last_name}/>
 
                     <!--                    <Input-->
@@ -145,9 +145,9 @@
                     <!--                            required-->
                     <!--                    />-->
                 </div>
-                <FloatingLabelInput style="outlined" type="date" label="Last Name"
+                <FloatingLabelInput type="date" label="Birth Date" style="outlined"
                                     bind:value={registerData.birth_date}/>
-
+<!--                <Datepicker datepickerFormat="dd/mm/yyyy" datepickerOrientation="bottom right" bind:value={registerData.birth_date}/>-->
                 <!--                <Input-->
                 <!--                        label="Birth Date"-->
                 <!--                        description="You have to be 13 years old or older (no bocil ep ep)"-->
