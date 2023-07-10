@@ -5,7 +5,7 @@
     import {screenWidthStore} from "$lib/utils/stores.ts";
     register();
 </script>
-<svelte:window bind:outerWidth={ $screenWidthStore}/>
+<svelte:window bind:outerWidth={$screenWidthStore}/>
 <div class="relative">
     <Navbar/>
     <div class="h-6"></div>
