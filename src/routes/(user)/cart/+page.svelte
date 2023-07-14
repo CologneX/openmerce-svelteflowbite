@@ -12,7 +12,7 @@
 
 <div class="grid grid-cols-3 sm:grid-cols-6 space-x-8">
     <div class="col-span-4 space-y-4">
-        <h4 class="text-current">Cart</h4>
+        <h4>Cart</h4>
         <div class="bg-white dark:bg-gray-800 sticky top-12 pt-4 z-10">
             <Checkbox>Select all</Checkbox>
             <div class="divider"></div>
