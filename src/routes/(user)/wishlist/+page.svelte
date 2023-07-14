@@ -28,7 +28,7 @@
 </svelte:head>
 
 
-<div>
+<div class="mb-4">
     <Heading tag="h4">Wishlist</Heading>
     <div class="h-2"></div>
         <Input placeholder="Search wishlist" class="w-full">

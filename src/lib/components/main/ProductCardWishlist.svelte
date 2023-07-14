@@ -2,7 +2,7 @@
     import StarMini from "$lib/icons/StarMini.svelte";
     import {goto} from "$app/navigation";
     import PlusSmall from "$lib/icons/PlusSmall.svelte";
-    import {Button, Card} from "flowbite-svelte";
+    import {Button, Card, P} from "flowbite-svelte";
     import TrashSmall from "$lib/icons/TrashSmall.svelte";
 
     export let products;
@@ -15,11 +15,11 @@
             <div>
                 <img src="/emptycart.png" alt="pic" class="aspect-square object-contain"/>
                 <div class="h-2"></div>
-                <p class="text-sm md:text-base">   {product}</p>
-                <p class=" text-sm md:text-base font-bold">Rp. 0</p>
+                <P class="text-sm md:text-base">   {product}</P>
+                <P class=" text-sm md:text-base font-bold">Rp. 0</P>
                 <div class="flex items-center">
                     <StarMini/>
-                    <p class="text-neutral-500">&nbsp;5 | 69 Sold</p>
+                    <P class="text-neutral-500 text-sm sm:text-base">&nbsp;5 • 69 Sold</P>
                 </div>
             </div>
             <div class="divider"></div>
