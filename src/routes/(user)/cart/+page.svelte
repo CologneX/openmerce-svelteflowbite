@@ -3,7 +3,7 @@
     import MinusCircle from "$lib/icons/MinusCircle.svelte";
     import Trash from "$lib/icons/Trash.svelte";
     import {screenWidthStore} from "$lib/utils/stores";
-    import {Button, Card, Checkbox, FloatingLabelInput} from "flowbite-svelte";
+    import {Button, Card, Checkbox, FloatingLabelInput, Heading, P} from "flowbite-svelte";
 </script>
 
 <svelte:head>
@@ -12,7 +12,7 @@
 
 <div class="grid grid-cols-3 sm:grid-cols-6 space-x-8">
     <div class="col-span-4 space-y-4">
-        <h4>Cart</h4>
+        <Heading tag="h4">Cart</Heading>
         <div class="bg-white dark:bg-gray-800 sticky top-12 pt-4 z-10">
             <Checkbox>Select all</Checkbox>
             <div class="divider"></div>
@@ -24,13 +24,15 @@
                         <Checkbox></Checkbox>
                         <img src="/emptycart.png" alt="gambar" class="object-contain aspect-square h-full max-h-20">
                         <div class="truncate">
-                            <p class="truncate text-sm md:text-base">{mantap}</p>
-                            <p class="font-semibold text-sm md:text-base">Rp. 69</p>
+                            <P class="truncate text-sm md:text-base">{mantap}</P>
+                            <P class="font-semibold text-sm md:text-base">Rp. 69</P>
                         </div>
                     </div>
                     <div class="flex">
-                        <button class="text-xs md:text-sm flex-1 text-start">
-                            Move to Wishlist
+                        <button class="flex-1 text-start">
+                            <P class="text-xs md:text-sm">
+                                Move to Wishlist
+                            </P>
                         </button>
                         <div class="justify-end flex {$screenWidthStore > 1024 ? 'gap-x-5' : 'gap-x-2'}">
                             <button
@@ -71,13 +73,13 @@
         </div>
     </div>
     <Card class="col-span-2 hidden sm:grid grid-flow-row p-4 space-y-4 h-fit sticky top-24 text-current">
-        <h5>Shopping summary</h5>
+        <Heading tag="h5">Shopping summary</Heading>
         <div class="grid grid-cols-2">
-            <p class="text-slate-500 text-sm">Total Price</p>
-            <p class="text-slate-500 text-sm text-end">Rp 0</p>
+            <P class="text-slate-500 text-sm">Total Price</P>
+            <P class="text-slate-500 text-sm text-end">Rp 0</P>
         </div>
         <div class="divider"></div>
-        <h5>Grand Total</h5>
+        <Heading tag="h5">Grand Total</Heading>
         <Button class="font-bold text-lg h-12" fullSize ripple variant="filled">Checkout</Button>
     </Card>
 </div>

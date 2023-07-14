@@ -11,7 +11,7 @@
 
 <div class="grid grid-cols-1 xxs:grid-cols-2 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
     {#each products as product}
-        <Card class="dark:bg-gray-700 cursor-pointer" on:click={() => goto(`/products/${product}`)}>
+        <Card class="dark:bg-gray-700 cursor-pointer p-4" padding="none" on:click={() => goto(`/products/${product}`)}>
             <div>
                 <img src="/emptycart.png" alt="pic" class="aspect-square object-contain"/>
                 <div class="h-2"></div>

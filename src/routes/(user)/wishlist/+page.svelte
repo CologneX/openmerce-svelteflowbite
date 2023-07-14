@@ -1,7 +1,7 @@
 <script lang="ts">
     import ProductCardWishlist from "$lib/components/main/ProductCardWishlist.svelte";
     import Search from "$lib/icons/Search.svelte";
-    import {Card, Input, Select} from "flowbite-svelte";
+    import {Heading, Input, P, Select} from "flowbite-svelte";
 
     let products = [
         'Product 1',
@@ -29,9 +29,8 @@
 
 
 <div>
-    <h4>Wishlist</h4>
+    <Heading tag="h4">Wishlist</Heading>
     <div class="h-2"></div>
-
         <Input placeholder="Search wishlist" class="w-full">
             <Search slot="left"/>
         </Input>
@@ -39,10 +38,10 @@
     <div class="h-2"></div>
     <div class="flex justify-between items-center">
         <div>
-            <p><span class="font-semibold">10</span> Items</p>
+            <P><span class="font-semibold">10</span> Items</P>
         </div>
         <div class="flex items-center">
-            <div class="font-bold text-sm w-full max-w-fit pr-4">Sort by</div>
+            <P class="font-bold text-sm w-full max-w-fit pr-4">Sort by</P>
             <Select items={sortOptions}/>
         </div>
     </div>
