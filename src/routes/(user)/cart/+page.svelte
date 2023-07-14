@@ -83,6 +83,13 @@
         <Button class="font-bold text-lg h-12" fullSize ripple variant="filled">Checkout</Button>
     </Card>
 </div>
-<Card class="w-full sticky bottom-0 block sm:hidden max-w-full">
+<!--<Card class="w-screen sticky bottom-0 block sm:hidden">-->
+<!--    <Button class="w-full">Checkout</Button>-->
+<!--</Card>-->
+<div class="sticky bottom-0 sm:hidden -mx-4 p-4 bg-white dark:bg-gray-800 shadow-md grid grid-cols-2 gap-x-4">
+    <div>
+        <P class="text-xs">Total Harga</P>
+        <P class="font-semibold">Rp. 33.098</P>
+    </div>
     <Button class="w-full">Checkout</Button>
-</Card>
+</div>
