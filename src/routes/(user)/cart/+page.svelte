@@ -23,8 +23,8 @@
                     <div class="flex flex-row gap-x-4 items-center">
                         <Checkbox></Checkbox>
                         <img src="/emptycart.png" alt="gambar" class="object-contain aspect-square h-full max-h-20">
-                        <div class="truncate">
-                            <P class="truncate text-sm md:text-base">{mantap}</P>
+                        <div>
+                            <P class="line-clamp-2 text-sm md:text-base">{mantap}</P>
                             <P class="font-semibold text-sm md:text-base">Rp. 69</P>
                         </div>
                     </div>

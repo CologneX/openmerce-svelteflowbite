@@ -15,7 +15,7 @@
             <div>
                 <img src="/emptycart.png" alt="pic" class="aspect-square object-contain"/>
                 <div class="h-2"></div>
-                <P class="text-sm md:text-base">   {product}</P>
+                <P class="text-sm md:text-base line-clamp-2">   {product}</P>
                 <P class=" text-sm md:text-base font-bold">Rp. 0</P>
                 <div class="flex items-center">
                     <StarMini/>

@@ -4,7 +4,18 @@
     import ShareMini from "$lib/icons/ShareMini.svelte";
     import PlusSmall from "$lib/icons/PlusSmall.svelte";
     import Truck from "$lib/icons/Truck.svelte";
-    import {Accordion, AccordionItem, AdvancedRating, Badge, Button, Card, Checkbox} from "flowbite-svelte";
+    import {
+        Accordion,
+        AccordionItem,
+        AdvancedRating,
+        Badge,
+        Button,
+        Card,
+        Checkbox,
+        Heading,
+        P,
+        Spinner
+    } from "flowbite-svelte";
 
     let SelectedFilterRating: number | null = null;
     export let data;
@@ -34,14 +45,14 @@
     </div>
 
     <div class="col-span-2">
-        <div class="font-bold text-base md:text-lg">HarmonyHaven TranquilSleep Pillow: A heavenly blend of soothing
+        <P class="font-bold text-base md:text-lg">HarmonyHaven TranquilSleep Pillow: A heavenly blend of soothing
             aromas and plush comfort for peaceful nights and rejuvenated mornings.
-        </div>
-        <div class="text-xs md:text-sm flex items-center pt-2"><span class="text-neutral-500">100+</span>&nbsp;Sold&nbsp;•&nbsp;<span><StarMini/></span>&nbsp;5.0
-        </div>
-        <div class="text-2xl md:text-3xl font-bold pt-4"> Rp. 150.000</div>
+        </P>
+        <P class="text-xs md:text-sm flex items-center pt-2"><span class="text-neutral-400">100+</span>&nbsp;Sold&nbsp;•&nbsp;<span><StarMini/></span>&nbsp;5.0
+        </P>
+        <P class="text-2xl md:text-3xl font-bold pt-4"> Rp. 150.000</P>
         <div class="divider"></div>
-        <div class="card p-3 space-y-2">
+        <div class=" space-y-2">
             <div class="md:flex gap-2 hidden">
                 <Button>Buy Now</Button>
                 <button class="btn variant-filled-primary font-bold flex-1"
@@ -49,19 +60,21 @@
                 </button>
             </div>
 
-            <div class="flex">
-                <button class="btn btn-sm flex-1"
-                ><span><HeartMini/></span><span>Wishlist</span></button
-
-                >
+            <div class="flex gap-x-4">
+                <Button outline class="btn btn-sm flex-1">
+                    <span><HeartMini/></span>
+                    Wishlist
+                </Button>
                 <div class="divider"></div>
-                <button class="btn btn-sm flex-1"><span><ShareMini/></span><span>Share</span></button>
+                <Button class="btn btn-sm flex-1" outline>
+                    <span><ShareMini/></span>Share
+                </Button>
             </div>
         </div>
 
         <div class="space-y-6">
-            <h4 class="font-semibold text-lg md:text-lg">Details</h4>
-            <p>Introducing LuminaGlo, the ultimate solution for your lighting needs. With its cutting-edge technology
+            <Heading tag="h5">Details</Heading>
+            <P>Introducing LuminaGlo, the ultimate solution for your lighting needs. With its cutting-edge technology
                 and sleek design, LuminaGlo brings a new level of illumination to any space. Whether you're looking to
                 brighten up your living room, office, or outdoor area, LuminaGlo has got you covered.<br/>
 
@@ -76,25 +89,25 @@
 
                 Experience the brilliance of LuminaGlo and transform your environment with its exceptional lighting
                 capabilities. Illuminate your world and embrace the beauty of well-lit spaces with LuminaGlo - where
-                innovation meets illumination.<br/></p>
+                innovation meets illumination.<br/></P>
 
-            <p>
-                <span class="text-neutral-500">Weight: </span> 12 kg
+            <P>
+                <span class="text-neutral-400">Weight: </span> 12 kg
                 <br>
-                <span class="text-neutral-500">Dimension: </span> 12 x 12 x 12 cm
+                <span class="text-neutral-400">Dimension: </span> 12 x 12 x 12 cm
                 <br>
-                <span class="text-neutral-500">Category: </span>
+                <span class="text-neutral-400">Category: </span>
                 <a href="/category/1" class="font-semibold text-primary-500">Home</a>
-            </p>
+            </P>
             <div class="divider"></div>
-            <div class="font-semibold text-lg">Delivery</div>
+            <Heading tag="h5">Delivery</Heading>
             <!--            <Skeleton class="h-10 rounded-md"/>-->
             <div class="flex flex-row gap-x-2">
                 <Truck/>
                 <div class="w-full">
-                    <p>Regular Delivery Rp15.000 - Rp250.000</p>
-                    <p class="text-neutral-500">Arrive expected 23 Jun - 26 Jun</p>
-                    <p>Other Couriers:
+                    <P>Regular Delivery Rp15.000 - Rp250.000</P>
+                    <P class="text-neutral-500">Arrive expected 23 Jun - 26 Jun</P>
+                    <P>Other Couriers:
                         <Badge>
                             SiCepat
                         </Badge>
@@ -104,7 +117,7 @@
                         <Badge>
                             Ninja
                         </Badge>
-                    </p>
+                    </P>
                     <p class="font-semibold text-primary-500">See Couriers</p>
                     <!--                    <Anchor class="no-underline text-xs md:text-sm font-bold">See Couriers</Anchor>-->
                 </div>
@@ -114,7 +127,7 @@
     </div>
 </div>
 
-<div class="font-bold text-lg py-6">User Reviews</div>
+<P class="font-bold text-lg py-6">User Reviews</P>
 <div class="flex flex-col md:flex-row gap-6">
     <div class="basis-2/5">
         <div class="sticky top-14">
@@ -234,10 +247,13 @@
         {/each}
     </div>
 </div>
-<Card class="flex flex-row -mx-4 sm:hidden bottom-0 sticky gap-x-2">
-    <Button class="flex-1" outline>Buy Now</Button>
+<div class="bg-white dark:bg-gray-800 p-4 flex flex-row -mx-4 sm:hidden bottom-0 sticky gap-x-2">
+    <Button class="flex-1" outline>
+        <Spinner/>
+        Buy Now
+    </Button>
     <Button class="flex-1">
         <PlusSmall/>
         Cart
     </Button>
-</Card>
+</div>

@@ -1,5 +1,7 @@
 <script lang="ts">
     import {goto} from "$app/navigation";
+    import {P} from "flowbite-svelte";
+
     export let product;
 </script>
 
@@ -8,6 +10,12 @@
     <img src="/emptycart.png" alt="pic"
          class="aspect-square object-contain">
     <div class="p-3">
-        {product}
+        <P class="line-clamp-2">
+            {product}
+        </P>
+        <P class="font-semibold">
+            Rp. 360.000
+        </P>
     </div>
+
 </swiper-slide>

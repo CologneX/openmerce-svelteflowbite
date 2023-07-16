@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import {screenWidthStore} from "$lib/utils/stores.ts";
     import {goto} from "$app/navigation";
     import Logo from "$lib/icons/Logo.svelte";
@@ -7,6 +7,7 @@
     import Settings from "$lib/icons/Settings.svelte";
     import SettingsPopover from "$lib/components/navbar/SettingsPopover.svelte";
     import CartPopover from "$lib/components/navbar/CartPopover.svelte";
+    import Back from "$lib/icons/Back.svelte";
 </script>
 
 <nav class="bg-white shadow-md dark:bg-gray-800 flex justify-between gap-x-4 md:gap-x-14 sticky w-full top-0 p-2 z-50">
@@ -15,6 +16,15 @@
             <Logo/>
         </button>
     {/if}
+    <!--{history.length}-->
+<!--    {#if history}-->
+<!--&lt;!&ndash;        <button on:click={()=>history.back()}>&ndash;&gt;-->
+<!--&lt;!&ndash;            <Back/>&ndash;&gt;-->
+<!--&lt;!&ndash;        </button>&ndash;&gt;-->
+
+
+<!--    {/if}-->
+
     <div class="justify-self-center max-w-4xl w-full">
         <Search size="md" placeholder="Search in OpenMerce" class="truncate"></Search>
     </div>

@@ -97,9 +97,9 @@
                     <img src="/emptycart.png" alt="gambar" class="object-contain aspect-square h-full max-h-20">
 
                     <div class="truncate grid grid-flow-col w-full">
-                        <div class="truncate">
-                            <P class="truncate text-sm md:text-base">
-                                {mantap.name} awdojahdiagduadadaweawarer earsef
+                        <div>
+                            <P class="line-clamp-2 text-sm md:text-base">
+                                {mantap.name}
                             </P>
                             <P class="text-xs md:text-sm">Rp. 69</P>
                         </div>
