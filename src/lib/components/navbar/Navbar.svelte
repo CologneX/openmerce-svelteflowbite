@@ -21,7 +21,7 @@
         </button>
     {/if}
     {#if $screenWidthStore < 400 && $page.url.pathname !== '/'}
-        <button on:click={()=>history.back()}>
+        <button on:click={()=>history.back() || goto('/')}>
             <Back/>
         </button>
     {/if}
