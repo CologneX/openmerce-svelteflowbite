@@ -7,23 +7,25 @@
     import Settings from "$lib/icons/Settings.svelte";
     import SettingsPopover from "$lib/components/navbar/SettingsPopover.svelte";
     import CartPopover from "$lib/components/navbar/CartPopover.svelte";
-    import Back from "$lib/icons/Back.svelte";
+    import MobileOptionDrawer from "$lib/components/mobile/MobileOptionDrawer.svelte";
+
+    let varOptionMobileDrawer: boolean = true;
 </script>
 
-<nav class="bg-white shadow-md dark:bg-gray-800 flex justify-between gap-x-4 md:gap-x-14 sticky w-full top-0 p-2 z-50">
+<nav class="bg-white border-b dark:bg-gray-800 flex justify-between gap-x-4 md:gap-x-14 sticky top-0 p-2 z-50">
     {#if $screenWidthStore > 400}
         <button on:click={()=>goto('/')}>
             <Logo/>
         </button>
     {/if}
     <!--{history.length}-->
-<!--    {#if history}-->
-<!--&lt;!&ndash;        <button on:click={()=>history.back()}>&ndash;&gt;-->
-<!--&lt;!&ndash;            <Back/>&ndash;&gt;-->
-<!--&lt;!&ndash;        </button>&ndash;&gt;-->
+    <!--    {#if history}-->
+    <!--&lt;!&ndash;        <button on:click={()=>history.back()}>&ndash;&gt;-->
+    <!--&lt;!&ndash;            <Back/>&ndash;&gt;-->
+    <!--&lt;!&ndash;        </button>&ndash;&gt;-->
 
 
-<!--    {/if}-->
+    <!--    {/if}-->
 
     <div class="justify-self-center max-w-4xl w-full">
         <Search size="md" placeholder="Search in OpenMerce" class="truncate"></Search>
@@ -39,10 +41,15 @@
             <Button outline on:click={()=>goto('/login')} size="sm">Login</Button>
         {/if}
         <div class="divider"></div>
-        <Button class="!p-2 border-none" color="alternative" id="SettingsButtonTrigger">
+        <Button class="!p-2 border-none" color="alternative" id="SettingsButtonTrigger"
+                on:click={()=>varOptionMobileDrawer=!varOptionMobileDrawer}
+        >
             <Settings/>
         </Button>
     </div>
     <SettingsPopover/>
     <CartPopover/>
 </nav>
+{#if $screenWidthStore < 400}
+    <MobileOptionDrawer bind:varOptionMobileDrawer/>
+{/if}

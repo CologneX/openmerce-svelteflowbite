@@ -5,9 +5,6 @@
     import Next from "$lib/icons/Next.svelte";
     import {screenWidthStore} from "$lib/utils/stores";
 </script>
-<div>
-
-</div>
 <svelte:head>
     <title>Main | OpenMerce</title>
 </svelte:head>
@@ -60,4 +57,3 @@
         {/each}
     </swiper-container>
 </div>
-
