@@ -18,7 +18,7 @@
             <div class="divider"></div>
         </div>
         <div class="flex flex-col">
-            {#each [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as mantap}
+            {#each [1, 2] as mantap}
                 <div class="pt-2">
                     <div class="flex flex-row gap-x-4 items-center">
                         <Checkbox></Checkbox>

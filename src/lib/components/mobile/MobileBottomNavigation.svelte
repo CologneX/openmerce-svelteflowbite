@@ -8,7 +8,7 @@
     import ShoppingCart from "$lib/icons/ShoppingCart.svelte";
 </script>
 
-<BottomNav position="sticky" classInner="grid-cols-4">
+<BottomNav position="absolute" classInner="grid-cols-4">
     <BottomNavItem btnName="Home" active={$page.url.pathname=== '/'} on:click={()=>goto('/')}>
         <Home/>
     </BottomNavItem>

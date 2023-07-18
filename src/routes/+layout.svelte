@@ -10,7 +10,7 @@
     $: varIsMobileBottomNavigationVisible = $page.url.pathname === '/' || $page.url.pathname === '/wishlist' || $page.url.pathname === '/cart' || $page.url.pathname === '/profile' || $page.url.pathname === '/search' || $page.url.pathname === '/category' || $page.url.pathname === '/transaction-list';
     register();
 </script>
-<svelte:window bind:outerWidth={$screenWidthStore}/>
+<svelte:window bind:innerWidth={$screenWidthStore}/>
 <!--<div class="relative">-->
 <!--    <Navbar/>-->
 <!--    <div class="h-6"></div>-->
@@ -31,14 +31,14 @@
 <!--    {/if}-->
 <!--</div>-->
 
-<div class="relative flex flex-col min-h-screen">
-    <Navbar/>
-    <main class="md:container mx-auto px-4 flex-grow">
-        <slot/>
-    </main>
-    {#if varIsMobileBottomNavigationVisible}
-        <MobileBottomNavigation/>
-    {/if}
-</div>
+
+<Navbar/>
+<main class="md:container mx-auto px-4 h-full">
+    <slot/>
+</main>
+{#if $screenWidthStore < 400 && varIsMobileBottomNavigationVisible}
+    <MobileBottomNavigation/>
+{/if}
+
 
 
