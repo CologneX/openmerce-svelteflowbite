@@ -8,6 +8,8 @@
     import SettingsPopover from "$lib/components/navbar/SettingsPopover.svelte";
     import CartPopover from "$lib/components/navbar/CartPopover.svelte";
     import MobileOptionDrawer from "$lib/components/mobile/MobileOptionDrawer.svelte";
+    import {page} from "$app/stores";
+    import Back from "$lib/icons/Back.svelte";
 
     let varOptionMobileDrawer: boolean = true;
 </script>
@@ -18,14 +20,11 @@
             <Logo/>
         </button>
     {/if}
-    <!--{history.length}-->
-    <!--    {#if history}-->
-    <!--&lt;!&ndash;        <button on:click={()=>history.back()}>&ndash;&gt;-->
-    <!--&lt;!&ndash;            <Back/>&ndash;&gt;-->
-    <!--&lt;!&ndash;        </button>&ndash;&gt;-->
-
-
-    <!--    {/if}-->
+    {#if $screenWidthStore < 400 && $page.url.pathname !== '/'}
+        <button on:click={()=>history.back()}>
+            <Back/>
+        </button>
+    {/if}
 
     <div class="justify-self-center max-w-4xl w-full">
         <Search size="md" placeholder="Search in OpenMerce" class="truncate"></Search>
