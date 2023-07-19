@@ -11,34 +11,17 @@
     register();
 </script>
 <svelte:window bind:innerWidth={$screenWidthStore}/>
-<!--<div class="relative">-->
-<!--    <Navbar/>-->
-<!--    <div class="h-6"></div>-->
-<!--    <main class="md:container mx-auto px-4">-->
-<!--        <slot/>-->
-<!--    </main>-->
-<!--    {#if varIsMobileBottomNavigationVisible}-->
-<!--        <MobileBottomNavigation/>-->
-<!--    {/if}-->
-<!--</div>-->
-<!--<div class="relative min-h-screen">-->
-<!--    <Navbar/>-->
-<!--    <main class="md:container mx-auto px-4 pb-16 ">-->
-<!--        <slot/>-->
-<!--    </main>-->
-<!--    {#if varIsMobileBottomNavigationVisible}-->
-<!--        <MobileBottomNavigation/>-->
-<!--    {/if}-->
-<!--</div>-->
-
-
-<Navbar/>
-<main class="md:container mx-auto px-4 h-full">
-    <slot/>
+<main class="flex flex-col min-h-screen">
+    <Navbar/>
+    <div class="mx-auto px-5 flex-grow max-w-7xl w-full h-full pt-4">
+        <slot/>
+    </div>
+    {#if $screenWidthStore < 640 && varIsMobileBottomNavigationVisible}
+        <MobileBottomNavigation/>
+    {/if}
 </main>
-{#if $screenWidthStore < 400 && varIsMobileBottomNavigationVisible}
-    <MobileBottomNavigation/>
-{/if}
+
+
 
 
 

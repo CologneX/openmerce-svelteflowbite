@@ -15,12 +15,12 @@
 </script>
 
 <nav class="bg-white border-b dark:bg-gray-800 flex justify-between gap-x-4 md:gap-x-14 sticky top-0 p-2 z-50">
-    {#if $screenWidthStore > 400}
+    {#if $screenWidthStore > 640}
         <button on:click={()=>goto('/')}>
             <Logo/>
         </button>
     {/if}
-    {#if $screenWidthStore < 400 && $page.url.pathname !== '/'}
+    {#if $screenWidthStore < 640 && $page.url.pathname !== '/'}
         <button on:click={()=>history.back() || goto('/')}>
             <Back/>
         </button>
@@ -34,7 +34,7 @@
         <Button class="!p-2 border-none" color="alternative" id="CartButtonTrigger" on:click={()=>goto('/cart')}>
             <ShoppingCart/>
         </Button>
-        {#if $screenWidthStore > 400}
+        {#if $screenWidthStore > 640}
             <div class="divider"></div>
             <Button on:click={()=>goto('/register')} size="sm">Register</Button>
             <Button outline on:click={()=>goto('/login')} size="sm">Login</Button>
@@ -49,6 +49,6 @@
     <SettingsPopover/>
     <CartPopover/>
 </nav>
-{#if $screenWidthStore < 400}
+{#if $screenWidthStore < 640}
     <MobileOptionDrawer bind:varOptionMobileDrawer/>
 {/if}

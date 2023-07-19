@@ -3,23 +3,22 @@
     import MinusCircle from "$lib/icons/MinusCircle.svelte";
     import Trash from "$lib/icons/Trash.svelte";
     import {screenWidthStore} from "$lib/utils/stores";
-    import {Button, Card, Checkbox, FloatingLabelInput, Heading, P} from "flowbite-svelte";
+    import {Button, Card, Checkbox, FloatingLabelInput, Heading, Hr, P} from "flowbite-svelte";
 </script>
 
 <svelte:head>
     <title>Cart | OpenMerce</title>
 </svelte:head>
 
-<div class="grid grid-cols-3 sm:grid-cols-6 space-x-8">
-    <div class="col-span-4 space-y-4">
+<div class="flex flex-row justify-between space-x-12">
+    <div class="w-full sm:basis-3/5 space-y-4 flex-grow">
         <Heading tag="h4">Cart</Heading>
-        <div class="bg-white dark:bg-gray-800 sticky top-12 pt-4 z-10">
+        <div class="bg-white dark:bg-gray-800 sticky top-12 z-10 border-b-4 py-4">
             <Checkbox>Select all</Checkbox>
-            <div class="divider"></div>
         </div>
         <div class="flex flex-col">
-            {#each [1, 2] as mantap}
-                <div class="pt-2">
+            {#each [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] as mantap}
+                <div class="py-2 border-b ">
                     <div class="flex flex-row gap-x-4 items-center">
                         <Checkbox></Checkbox>
                         <img src="/emptycart.png" alt="gambar" class="object-contain aspect-square h-full max-h-20">
@@ -39,7 +38,9 @@
                                     class="btn-icon btn-icon-sm {$screenWidthStore > 1024 ? 'w-8' : 'w-6'}"
                                     type="button"
                                     aria-label="Delete Product">
-                                <Trash/>
+                                <span class="text-primary-500">
+                                          <Trash/>
+                                </span>
                             </button>
                             <div class="divider"></div>
                             <div class="grid grid-cols-[auto_1fr_auto] w-fit">
@@ -68,25 +69,21 @@
                         </div>
                     </div>
                 </div>
-                <div class="divider"></div>
             {/each}
         </div>
     </div>
-    <Card class="col-span-2 hidden sm:grid grid-flow-row p-4 space-y-4 h-fit sticky top-24 text-current">
-        <Heading tag="h5">Shopping summary</Heading>
+    <Card class="max-w-xs basis-2/5 hidden sm:grid grid-flow-row p-4 space-y-4 h-fit sticky top-24 text-current">
+        <Heading tag="h6">Shopping Summary</Heading>
         <div class="grid grid-cols-2">
             <P class="text-slate-500 text-sm">Total Price</P>
             <P class="text-slate-500 text-sm text-end">Rp 0</P>
         </div>
-        <div class="divider"></div>
-        <Heading tag="h5">Grand Total</Heading>
+        <Hr/>
+        <Heading tag="h6">Grand Total</Heading>
         <Button class="font-bold text-lg h-12" fullSize ripple variant="filled">Checkout</Button>
     </Card>
 </div>
-<!--<Card class="w-screen sticky bottom-0 block sm:hidden">-->
-<!--    <Button class="w-full">Checkout</Button>-->
-<!--</Card>-->
-<div class="sticky bottom-0 sm:hidden -mx-4 p-4 bg-white dark:bg-gray-800 shadow-md grid grid-cols-2 gap-x-4">
+<div class="sticky bottom-16 -mx-4 sm:hidden p-4 bg-white dark:bg-gray-800 grid grid-cols-2 gap-x-4">
     <div>
         <P class="text-xs">Total Harga</P>
         <P class="font-semibold">Rp. 33.098</P>
