@@ -2,6 +2,7 @@
 import {isLoggedInStore} from "$lib/utils/stores.ts";
 import type {LayoutLoad} from './$types';
 
+export const ssr = false;
 export const load = (async () => {
     localStorage.getItem('color-theme') === 'dark' ||
     (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
